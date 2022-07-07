@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    // 12: ?100 1-100
+    // 12-100 = 88
+    // 12 -- (1 - 10) == caliente hot
+    // 12 -- (11 - 20) == medio caliene
+    // 12 -- (21 - 50) == frio
+    // 12 -- >51 == muy frio
+
+    <script src="Adivina.js"></script>
+    <script>
+        var adivinaClass = new Adivina();
+        var cath = 0;
+        var num = 0
+        var attemps = 10;
+        console.log("num rangom= " + adivinaClass.numRandom);
+        while (attemps > 1) {
+            console.log("intentos: " + adivinaClass.attemps + " attemps: " + attemps)
+
+            num = parseInt(prompt("ingrese numero"));
+            adivinaClass.validateNumber(num);
+            if (adivinaClass.message == "Win") {
+                cath = adivinaClass.numRandom;
+                console.log("ganaster");
+            }
+
+
+            attemps--;
+            adivinaClass.attemps -= 1;
+            console.log("message: " + adivinaClass.message);
+            console.log("num typed: " + num);
+
+
+        }
+
+    </script>
+</body>
+
+</html>
