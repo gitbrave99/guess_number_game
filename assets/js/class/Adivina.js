@@ -2,7 +2,7 @@ class Adivina {
 
     constructor() {
         this.num_random();
-        this.intentos = 10
+        this._intentos = 10
     }
 
     get intentos() {
@@ -22,6 +22,10 @@ class Adivina {
         let unknown_num = Math.floor(Math.random() * 2100) + 1
         this.nmrandom = unknown_num
         console.log("se ha creado numero random : ", this.nmrandom);
+    }
+
+    reset_game(){
+        this._intentos=10
     }
 
     validar_numero(numero, box_message, tblist_numbers) {
@@ -52,7 +56,16 @@ class Adivina {
         padre.appendChild(dvAlert)
     }
 
+    hide_message(padre){
+        padre.innerHTML = ""
+    }
+
     add_numer_in_table(tblist_numbers, number) {
         tblist_numbers.innerHTML += `<td>${number}</td>`
+    }
+
+    reset_table_data(tblist){
+        tblist.innerHTML=""
+        // tblist.innerHTML="<tr></tr>"
     }
 }

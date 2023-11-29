@@ -9,18 +9,31 @@ window.addEventListener("DOMContentLoaded", (ev) => {
     span_attemps.textContent = cAdivinar.intentos
     form_guess.addEventListener("submit", (evt) => {
         evt.preventDefault();
+        if (inputNumber.value.length < 1) {return;}
 
-        if (cAdivinar.intentos > 0) {
+        if (cAdivinar.intentos >= 1) {
             console.log(cAdivinar.intentos);
             console.log(inputNumber.value);
             cAdivinar.validar_numero(inputNumber.value, box_message, tblist_numbers);
             cAdivinar.intentos -= 1
             span_attemps.textContent = cAdivinar.intentos
-        } else {
+            console.log("itentos= " + cAdivinar._nmrandom);
+        }
+        if (cAdivinar.intentos == 0 && parseInt(cAdivinar._nmrandom) != parseInt(inputNumber.value)) {
             cAdivinar.show_message(box_message, "alert-danger", "Se agotaron los intentos, suerte para la próxima")
         }
 
-
+        inputNumber.value = ""
     })
+
+    document.getElementById("#btnResetGame").addEventListener("click",()=>{
+        cAdivinar.reset_game()
+        span_attemps.textContent = cAdivinar.intentos
+        // cAdivinar.num_random();
+        // console.log("padr= ",tblist_body);
+        cAdivinar.reset_table_data(tblist_numbers)
+        // cAdivinar.show_message(box_message, "alert-danger", "")
+        cAdivinar.hide_message(box_message)
+    });
 
 })
