@@ -29,11 +29,9 @@ window.addEventListener("DOMContentLoaded", (ev) => {
     document.getElementById("#btnResetGame").addEventListener("click",()=>{
         cAdivinar.reset_game()
         span_attemps.textContent = cAdivinar.intentos
-        // cAdivinar.num_random();
-        // console.log("padr= ",tblist_body);
         cAdivinar.reset_table_data(tblist_numbers)
-        // cAdivinar.show_message(box_message, "alert-danger", "")
         cAdivinar.hide_message(box_message)
+        inputNumber.value = ""
     });
 
 })

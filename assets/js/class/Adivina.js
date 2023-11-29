@@ -26,6 +26,7 @@ class Adivina {
 
     reset_game(){
         this._intentos=10
+        this.num_random();
     }
 
     validar_numero(numero, box_message, tblist_numbers) {
